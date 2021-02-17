@@ -1,1 +1,2 @@
-https://pebblepark.github.io
+- https://pebblepark.github.io
+- 잊기전에 정리해놓자.
