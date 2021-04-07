@@ -53,37 +53,37 @@ class Member {
 
 ** 만약, 아래 테스트 코드를 돌리게 되면 `testSelect()` 메서드 내 같은 트랜잭션 안에서 `member` 들이 참조하고 있는 객체가 이미 `save`를 하면서 1차 캐시에 캐싱되어 있기 때문에 `findAll()`을 할 때 다시 불러올 필요가 없으므로 1번만 조회한다.
 
-    ```java
-    @RunWith(SpringRunner.class)
-    @DataJpaTest
-    public class MemberRepositoryTest {
-        @Autowired MemberRepository memberRepository;
-        @Autowired TeamRepository teamRepository;
+```java
+@RunWith(SpringRunner.class)
+@DataJpaTest
+public class MemberRepositoryTest {
+    @Autowired MemberRepository memberRepository;
+    @Autowired TeamRepository teamRepository;
+    
+    @Test
+    public void testSelect() {
+        Team team = new Team();
+        team.setName("team1");
+        Team savedTeam = teamRepository.save(team);
         
-        @Test
-        public void testSelect() {
-            Team team = new Team();
-            team.setName("team1");
-            Team savedTeam = teamRepository.save(team);
-            
-            Team team2 = new Team();
-            team2.setName("team2");
-            Team savedTeam2 = teamRepository.save(team2);
-            
-            Member member1 = new Member();
-            member1.setName("amy");
-            member1.setTeam(savedTeam);
-            memberRepository.save(member1);
-            
-            Member memer2 = new Member();
-            member2.setName("chris");
-            member2.setTeam(savedTeam2);
-            memberRepository.save(member2);
-            
-            memberRepository.findAll().forEach(System.out::println);
-        }
+        Team team2 = new Team();
+        team2.setName("team2");
+        Team savedTeam2 = teamRepository.save(team2);
+        
+        Member member1 = new Member();
+        member1.setName("amy");
+        member1.setTeam(savedTeam);
+        memberRepository.save(member1);
+        
+        Member memer2 = new Member();
+        member2.setName("chris");
+        member2.setTeam(savedTeam2);
+        memberRepository.save(member2);
+        
+        memberRepository.findAll().forEach(System.out::println);
     }
-    ```
+}
+```
 
 <br>
 ## N+1 문제 해결 방법
