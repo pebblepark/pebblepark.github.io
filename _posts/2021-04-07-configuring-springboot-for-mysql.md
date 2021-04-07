@@ -54,7 +54,7 @@ mybatis:
 
 - 패키지명 : com.spring.security.example
 
-![패키지 구조]({{site.url}}/assets/images/img/2021-04-07-configuring-springboot-for-mysql/package-tree.png)
+![패키지 구조]({{site.url}}/assets/images/img/2021-04-07-configuring-springboot-for-mysql/package-tree.PNG)
 
 <br>
 
