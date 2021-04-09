@@ -1,1 +1,17 @@
 // Custom styles.
+.posts-expand {
+    .post-eof {
+      margin: 40px auto 40px;
+      width: 10%;
+    }
+}
+
+.posts-expand .post-title {
+    text-align: left;
+    font-weight: bold;
+}
+
+.posts-expand .post-meta {
+    margin: 3px 0 30px 0;
+    text-align: left;
+  }
