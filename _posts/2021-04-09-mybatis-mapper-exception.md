@@ -14,7 +14,13 @@ org.apache.ibatis.binding.BindingException: Invalid bound statement (not found)
 
 
 
-해당 글에 적혀있는 대로 전부 확인해보았지만 이상한 점은 없었다. 그래서 더 구글링해본 결과 mybatis 관련 설정을 해놓은 `application.yml` 파일이 `src/main/resources` 폴더 안에 있었기 때문에 `classpath` 가 `src/main/resources` , `src/main/java` 로 잡히는 것이 아니라 `src/main/resource`로 잡히기 때문에 `mapper` 파일을 찾지 못해 발생하는 에러였다. 당연히 `classpath` 라면 `java` 폴더도 사용할 수 있을 거라고 생각했고 실제로 이클립스에서는 코드가 잘 동작했기 때문에 인텔리제이로 실행했을 때 에러가 발생해서 매우 당황했다.
+해당 글에 적혀있는 대로 전부 확인해보았지만 이상한 점은 없었다.
+그래서 더 구글링해본 결과
+- mybatis 관련 설정을 해놓은 `application.yml` 파일이 `src/main/resources` 폴더 안에 있었기 때문에
+- `classpath` 가 `src/main/resources` , `src/main/java` 로 잡히는 것이 아니라
+- `src/main/resource`로 잡히기 때문에 `mapper` 파일을 찾지 못해 발생하는 에러였다.
+
+당연히 `classpath` 라면 `java` 폴더도 사용할 수 있을 거라고 생각했고 실제로 이클립스에서는 코드가 잘 동작했기 때문에 인텔리제이로 실행했을 때 에러가 발생해서 매우 당황했다.
 
 ```yaml
 mybatis:
@@ -33,7 +39,7 @@ spring:
 
 
 
-일반적으로 `mapper` 파일은 `src/main/resources` 밑에 폴더를 만들어서 관리하지만 필자는 `src/main/java`에서 `mapper` 파일을 관리하고 싶었기 때문에 방법을 찾아보았다.
+`mapper` 파일은 `src/main/resources` 밑에 폴더를 만들어서 관리하는 것이 일반적이지만, `src/main/java`에서 `mapper` 파일을 관리하고 싶었기 때문에 방법을 찾아보았다.
 
 
 
@@ -58,7 +64,7 @@ spring:
 
 
 
-하지만 필자가 만든 프로젝트는 `Gradle` 이었기 때문에 다른 방법으로 수정이 필요했다. 그래서 `application.yml` 설정을 `Java Configuration`으로 변경했다.
+하지만 프로젝트는 이미 `Gradle`로 만들었기 때문에 다른 방법으로 수정이 필요했다. 그래서 `application.yml` 설정을 `Java Configuration`으로 변경했다.
 
 ###  Java Configuration 으로 변경
 
@@ -113,9 +119,9 @@ public interface UserMapper {
 
 
 
-### 정리
+### 마치며
 
-사실 `xml` 파일을 `resource` 폴더에서 관리하는 게 일반적이지만 필자처럼 `src/main/java` 폴더 밑에서 관리하고 싶은 사람들이 있을 것이다.  에러를 정리하면서 `classpath`에 대해 조금 더 정확하게 알 수 있었고 `Mapper Interface`를 활용하는 법에 대해 알게 되었다. 아래 링크는 `mybatis`에 대해 더 자세하게 알고 싶다면 참고하면 좋을 것 같다.
+사실 `xml` 파일을 `resource` 폴더에서 관리하는 게 일반적이지만 `src/main/java` 폴더 밑에서 관리하는 방법도 알아보았다.  에러를 정리하면서 `classpath`에 대해 조금 더 정확하게 알 수 있었고 `Mapper Interface`를 활용하는 법에 대해 알게 되었다. 아래 링크는 `mybatis`에 대해 더 자세하게 알고 싶다면 참고하면 좋을 것 같다.
 
 
 
