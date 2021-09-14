@@ -48,7 +48,7 @@ tags:
     ```
 
     - 우분투가 버전 2로 설치된 것을 확인할 수 있습니다.
-    ![WSL 버전]({{site.url}}/assets/images/img/2021-09-15-constructing-a-pipeline-with-docker-on-windows/wsl-version.PNG)
+    ![WSL 버전]({{site.url}}/assets/images/img/2021-09-15-constructing-a-pipeline-with-docker-on-windows/wsl-version.png)
 
 <br>
 
@@ -59,12 +59,12 @@ tags:
     [Docker Desktop for Windows by Docker | Docker Hub](https://hub.docker.com/editions/community/docker-ce-desktop-windows)
 2. **설정 변경**
     - 설치 후 실행하여 설정 > `General` > `Use the WSL2 based engine` 옵션 체크 및 `Resource` > `WSL Integration` 으로 이동하여 자신이 사용중인 `WSL2` 배포판이 맞는지 확인합니다.
-    ![Use the WSL2 based engine]({{site.url}}/assets/images/img/2021-09-15-constructing-a-pipeline-with-docker-on-windows/docker-desktop-option1.PNG)
+    ![Use the WSL2 based engine]({{site.url}}/assets/images/img/2021-09-15-constructing-a-pipeline-with-docker-on-windows/docker-desktop-option1.png)
     ![WSL Integration]({{site.url}}/assets/images/img/2021-09-15-constructing-a-pipeline-with-docker-on-windows/docker-desktop-option2.png)
     > 현재 사용중인 WSL 배포판이 체크되어 있지 않다면 체크합니다.
 3. **`Docker` 설치 확인**
     - `Ubuntu Shell` 을 통해 `docker` 명령어 사용이 가능한지 확인합니다.
-    ![docker ps]({{site.url}}/assets/images/img/2021-09-15-constructing-a-pipeline-with-docker-on-windows/docker-ps.PNG)
+    ![docker ps]({{site.url}}/assets/images/img/2021-09-15-constructing-a-pipeline-with-docker-on-windows/docker-ps.png)
 
 <br>
 
